@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleForIndex.css') }}">
+    <title>Task Master</title>
+</head>
+
+
+<body>
+<header>
+    <h1>Task Master</h1>
+</header>
+
+<form method="POST">
+    <input type="text" name="contents" id="content"required=""/>
+    <input type="submit" value="Add" />
+</form>
+
+
+<br />
+<br />
+
+<table class="table-class">
+    <thead style="background-color:red">
+        <th>S.No</th>
+        <th>Tasks</th>
+        <th>Created On</th>
+        <th>Status & Actions</th>
+    </thead>
+    
+    <tbody style="background-color:rgb(252,255,178)"> 
+           {% for task in tasks %}
+        <tr>
+
+            <td>{{loop.index}}</td>
+            <td>{{task.tasks}}</td>
+            <td>{{task.date}}</td>           
+             <td> 
+    
+    <form action="{{ url_for('deleteTask', id=task.id) }}" method="POST" style="display:inline;">
+        <button type="submit">Delete</button>
+    </form>
+
+    
+    <a href="{{ url_for('updateTask', id=task.id) }}">
+        <button type="button">Update</button>
+    </a>
+</td>
+        </tr>
+      {% endfor %}
+       
+        
+    </tbody>
+ 
+</table>
+
+</body>
+</html>
