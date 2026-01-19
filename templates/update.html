@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styleForUpdatePage.css') }}">
+</head>
+
+
+<body>
+<header>
+    <h1>TaskMaster</h1>
+    <h2>(Update page)</h2>
+</header>
+
+<form method="POST">
+    <input type="text" name="update_task" id="content" value=" {{ contents }} "/>
+    <input type="submit" value="update" />
+</form>
+        
+    </tbody>
+ 
+</table>
+
+</body>
+</html>
